@@ -20,8 +20,8 @@ let parseQuery = (req, res) => {
 */
 
 const signUp = (req, res) => {
-    let username = req.body.username;
-    let password = req.body.password;
+    let username = req.body.username!==""?req.body.username:null;
+    let password = req.body.password!==""?req.body.password:null;
     let query = `INSERT INTO User(username, password) values('${username}', '${password}');`;
 
     new Promise((resolve, reject) => {
@@ -42,8 +42,8 @@ const signUp = (req, res) => {
 };
 
 const login = (req, res) => {
-    let username = req.body.username;
-    let password = req.body.password;
+    let username = req.body.username!==""?req.body.username:null;
+    let password = req.body.password!==""?req.body.password:null;
     let query = `SELECT username FROM User WHERE username='${username}' and password='${password}';`;
 
     new Promise((resolve, reject) => {
